@@ -1,22 +1,26 @@
+---
+---
+{%- assign c = site.data.content -%}
+{%- if c.kickstarter.url and c.kickstarter.url != "" -%}{%- assign ks_live = true -%}{%- else -%}{%- assign ks_live = false -%}{%- endif -%}
 <!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ad Valorem | A real estate strategy game by Furthew Entertainment</title>
-<meta name="description" content="Ad Valorem is a real estate strategy game for 2 to 8 players. Buy property, collect rent, survive Fortuna and sabotage your friends. Coming to Kickstarter February 2, 2027.">
+<title>{{ c.seo.title | escape }}</title>
+<meta name="description" content="{{ c.seo.description | escape }}">
 <meta name="theme-color" content="#aead7f">
 <meta name="color-scheme" content="light">
 <link rel="canonical" href="https://furthew.com/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://furthew.com/">
-<meta property="og:title" content="Ad Valorem: You have to plan to prosper">
-<meta property="og:description" content="A real estate strategy game for 2 to 8 players. On the table and on your phone. Coming to Kickstarter February 2, 2027.">
-<meta property="og:image" content="https://furthew.com/og.jpg">
+<meta property="og:title" content="{{ c.seo.share_title | escape }}">
+<meta property="og:description" content="{{ c.seo.share_description | escape }}">
+<meta property="og:image" content="https://furthew.com{{ c.seo.share_image }}">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" type="image/png" href="favicon.png">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
-<link rel="preload" href="comfortaa-bold.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preload" href="/comfortaa-bold.woff2" as="font" type="font/woff2" crossorigin>
 <style>
 @font-face{font-family:"Comfortaa";src:url(comfortaa-bold.woff2) format("woff2");font-weight:700;font-display:swap}
 @font-face{font-family:"AV Hand";src:url(handwriting.woff2) format("woff2");font-display:swap}
@@ -97,10 +101,8 @@ h2{font:700 clamp(1.6rem,5.5vw,2.3rem)/1.15 var(--head);margin:0 0 .4em;letter-s
 .board h2{text-align:center;background:var(--paper);display:table;margin:0 auto 26px;padding:8px 18px 6px;border-radius:4px;transform:rotate(1deg);box-shadow:0 4px 10px rgba(0,0,0,.15)}
 .notes{display:grid;grid-template-columns:1fr;gap:22px}
 .note{position:relative;padding:24px 18px 18px;border-radius:3px;box-shadow:0 8px 16px rgba(60,30,10,.25)}
-.note:nth-child(1){background:var(--note-y);transform:rotate(-2deg)}
-.note:nth-child(2){background:var(--note-p);transform:rotate(1.5deg)}
-.note:nth-child(3){background:var(--note-b);transform:rotate(-1deg)}
-.note:nth-child(4){background:var(--note-g);transform:rotate(2deg)}
+.note.yellow{background:var(--note-y)}.note.pink{background:var(--note-p)}.note.blue{background:var(--note-b)}.note.green{background:var(--note-g)}
+.note:nth-child(4n+1){transform:rotate(-2deg)}.note:nth-child(4n+2){transform:rotate(1.5deg)}.note:nth-child(4n+3){transform:rotate(-1deg)}.note:nth-child(4n){transform:rotate(2deg)}
 .note h3{font:400 1.75rem/1 var(--hand);margin:0 0 .3em}
 .note p{margin:0;font-size:.98rem}
 .win{margin:26px auto 0;max-width:520px;background:var(--paper);padding:16px 18px;border-radius:4px;text-align:center;transform:rotate(-.6deg);box-shadow:0 8px 16px rgba(60,30,10,.22);font-family:var(--head);font-weight:700}
@@ -166,31 +168,25 @@ footer a{color:var(--cream)}
 <header class="hero">
   <div class="wrap">
     <nav class="top" aria-label="Site">
-      <a class="brand" href="https://furthew.com/"><img src="furthew.webp" alt="" width="38" height="38">Furthew Entertainment</a>
-      <a class="fb" href="https://www.facebook.com/furthewentertainment" target="_blank" rel="noopener">
-        <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.8c0-.9.3-1.6 1.6-1.6h1.7V4.3c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.3H7.4V14h2.7v8h3.4Z"/></svg>
-        Follow
-      </a>
+      <a class="brand" href="/"><img src="{{ c.brand.logo }}" alt="" width="38" height="38">{{ c.brand.name | escape }}</a>
+      <a class="fb" href="{{ c.brand.facebook_url }}" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.8c0-.9.3-1.6 1.6-1.6h1.7V4.3c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.3H7.4V14h2.7v8h3.4Z"/></svg> {{ c.brand.follow_label | escape }}</a>
     </nav>
     <div class="hero-grid">
-      <div class="poster"><img class="logo" src="logo.webp" alt="Ad Valorem logo: a gold house outline above the words Ad Valorem" width="720" height="644"></div>
+      <div class="poster"><img class="logo" src="{{ c.hero.logo }}" alt="{{ c.hero.logo_alt | escape }}" width="720" height="644"></div>
       <div class="hero-copy">
         <h1 class="sr-only">Ad Valorem</h1>
-        <p class="tagline">You have to plan to prosper</p>
-        <p class="lede">A real estate strategy game for 2 to 8 players. Buy property, collect rent, survive Fortuna and sabotage your friends. On the table and on your phone.</p>
+        <p class="tagline">{{ c.hero.tagline | escape }}</p>
+        <p class="lede">{{ c.hero.intro | escape }}</p>
         <div class="ctas">
-          <a class="btn btn-ks soon" id="ks-btn" href="#launch" aria-describedby="ks-sub">
-            <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 3h4v6.2L15.4 3H20l-5.6 8.3L20 21h-4.7L11 13.6V21H7V3Z"/></svg>
-            <span><span id="ks-label">Kickstarter: launching Feb 2, 2027</span><span class="sub" id="ks-sub">"Notify me" link coming soon</span></span>
-          </a>
-          <a class="btn btn-demo" href="https://furthew-dev.github.io/ad-valorem-pocket/" target="_blank" rel="noopener">
-            <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M8 5v14l11-7L8 5Z"/></svg>
-            Play the free demo
-          </a>
-          <a class="btn btn-fb" href="https://www.facebook.com/furthewentertainment" target="_blank" rel="noopener">
-            <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.8c0-.9.3-1.6 1.6-1.6h1.7V4.3c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.3H7.4V14h2.7v8h3.4Z"/></svg>
-            Follow on Facebook
-          </a>
+          {%- if ks_live %}
+          <a class="btn btn-ks" href="{{ c.kickstarter.url }}" target="_blank" rel="noopener"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 3h4v6.2L15.4 3H20l-5.6 8.3L20 21h-4.7L11 13.6V21H7V3Z"/></svg>
+            <span><span>{{ c.kickstarter.label_live | escape }}</span><span class="sub">{{ c.kickstarter.sublabel_live | escape }}</span></span></a>
+          {%- else %}
+          <a class="btn btn-ks soon" href="#launch"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 3h4v6.2L15.4 3H20l-5.6 8.3L20 21h-4.7L11 13.6V21H7V3Z"/></svg>
+            <span><span>{{ c.kickstarter.label_soon | escape }}</span><span class="sub">{{ c.kickstarter.sublabel_soon | escape }}</span></span></a>
+          {%- endif %}
+          <a class="btn btn-demo" href="{{ c.brand.demo_url }}" target="_blank" rel="noopener"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M8 5v14l11-7L8 5Z"/></svg> {{ c.hero.demo_label | escape }}</a>
+          <a class="btn btn-fb" href="{{ c.brand.facebook_url }}" target="_blank" rel="noopener"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.8c0-.9.3-1.6 1.6-1.6h1.7V4.3c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.3H7.4V14h2.7v8h3.4Z"/></svg> {{ c.hero.facebook_label | escape }}</a>
         </div>
       </div>
     </div>
@@ -199,131 +195,126 @@ footer a{color:var(--cream)}
 </header>
 
 <main>
+{%- for section in c.section_order %}
+
+{%- if section == "launch" and c.launch.show %}
   <section class="deskboard" id="launch" aria-labelledby="launch-title">
     <div class="wrap">
       <div class="launch">
         <span class="pin" aria-hidden="true"></span>
-        <h2 class="label" id="launch-title">Kickstarter launch</h2>
-        <div class="count" id="count" aria-live="off">
+        <h2 class="label" id="launch-title">{{ c.launch.heading | escape }}</h2>
+        <div class="count" id="count" data-launch="{{ c.launch.date | date: '%Y-%m-%d' }}" data-live="{{ c.launch.live_text | escape }}">
           <div><b id="cd-d">--</b><span>days</span></div>
           <div><b id="cd-h">--</b><span>hours</span></div>
           <div><b id="cd-m">--</b><span>min</span></div>
         </div>
-        <p class="small">Tuesday, February 2, 2027. Follow us on Facebook and we'll post the moment it goes live.</p>
+        <p class="small">{{ c.launch.note | escape }}</p>
       </div>
     </div>
   </section>
 
+{%- elsif section == "how" and c.how.show %}
   <section class="board-sec" aria-labelledby="how-title">
     <div class="wrap">
       <div class="board">
-        <h2 id="how-title">How it plays</h2>
+        <h2 id="how-title">{{ c.how.heading | escape }}</h2>
         <div class="notes">
-          <article class="note"><h3>Buy property</h3><p>Four properties, max. Your portfolio is capped, so every purchase counts.</p></article>
-          <article class="note"><h3>Collect rent</h3><p>Rent rolls in every round. So does 10% interest on whatever you borrowed.</p></article>
-          <article class="note"><h3>Survive Fortuna</h3><p>One card each round. An inheritance, or a lawsuit. A lucky break, or a storm.</p></article>
-          <article class="note"><h3>Sabotage friends</h3><p>Make a rival draw Fortuna. When their luck turns bad, you collect.</p></article>
+          {%- for n in c.how.notes %}
+          <article class="note {{ n.color | default: 'yellow' }}"><h3>{{ n.title | escape }}</h3><p>{{ n.text | escape }}</p></article>
+          {%- endfor %}
         </div>
-        <p class="win">The player with the most wealth wins.<small>Hold more than 200 Rebucks with every loan paid off, and outmaneuver everyone at the table.</small></p>
+        {%- if c.how.win_title and c.how.win_title != "" %}
+        <p class="win">{{ c.how.win_title | escape }}<small>{{ c.how.win_text | escape }}</small></p>
+        {%- endif %}
       </div>
     </div>
   </section>
 
+{%- elsif section == "market" and c.market.show %}
   <section class="market" aria-labelledby="market-title">
     <div class="wrap">
       <div class="market-head">
-        <p class="kicker">Now listing</p>
-        <h2 id="market-title">On the market</h2>
-        <p>From tiny houses to castles. Pick the right listings and let the rent work for you.</p>
+        <p class="kicker">{{ c.market.kicker | escape }}</p>
+        <h2 id="market-title">{{ c.market.heading | escape }}</h2>
+        <p>{{ c.market.intro | escape }}</p>
       </div>
       <div class="listings">
-        <figure class="listing"><img src="tinyhouse.webp" alt="Tiny house property card" width="520" height="499" loading="lazy"><figcaption>Tiny House</figcaption></figure>
-        <figure class="listing"><img src="mansion.webp" alt="Mansion property card" width="520" height="499" loading="lazy"><figcaption>Mansion</figcaption></figure>
-        <figure class="listing"><img src="lighthouse.webp" alt="Lighthouse property card" width="520" height="499" loading="lazy"><figcaption>Lighthouse</figcaption></figure>
-        <figure class="listing"><img src="castle.webp" alt="Castle property card" width="520" height="499" loading="lazy"><figcaption>Castle</figcaption></figure>
+        {%- for l in c.market.listings %}
+        <figure class="listing"><img src="{{ l.image }}" alt="{{ l.name | escape }} property card" width="520" height="499" loading="lazy"><figcaption>{{ l.name | escape }}</figcaption></figure>
+        {%- endfor %}
       </div>
     </div>
   </section>
 
+{%- elsif section == "pocket" and c.pocket.show %}
   <section class="deskboard" aria-labelledby="pocket-title">
     <div class="wrap">
       <div class="pocket-card">
         <div>
-          <p class="kicker">Ad Valorem Pocket</p>
-          <h2 id="pocket-title">Play it on your phone</h2>
+          <p class="kicker">{{ c.pocket.kicker | escape }}</p>
+          <h2 id="pocket-title">{{ c.pocket.heading | escape }}</h2>
           <ul>
-            <li>One person hosts. Everyone else joins free with a room key.</li>
-            <li>No ads. Game night, not microtransactions.</li>
-            <li>Coming to iOS and Android. Try the web version today.</li>
+            {%- for p in c.pocket.points %}
+            <li>{{ p | escape }}</li>
+            {%- endfor %}
           </ul>
-          <a class="btn btn-demo" href="https://furthew-dev.github.io/ad-valorem-pocket/" target="_blank" rel="noopener" style="max-width:320px">
-            <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M8 5v14l11-7L8 5Z"/></svg>
-            Play the free demo
-          </a>
+          <a class="btn btn-demo" href="{{ c.brand.demo_url }}" target="_blank" rel="noopener" style="max-width:320px"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M8 5v14l11-7L8 5Z"/></svg> {{ c.pocket.button_label | escape }}</a>
         </div>
         <div class="phone" aria-hidden="true">
           <div class="phone-screen">
-            <img class="mini" src="logo.webp" alt="" width="720" height="643" loading="lazy">
-            <span class="key">ROOM SJ4-GT7</span>
+            <img class="mini" src="{{ c.hero.logo }}" alt="" width="720" height="644" loading="lazy">
+            <span class="key">{{ c.pocket.room_key | escape }}</span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
+{%- elsif section == "story" and c.story.show %}
   <section class="story" aria-labelledby="story-title">
     <div class="wrap">
       <div class="notepad">
-        <h2 id="story-title">How it started</h2>
-        <p>In 2017 I was training to become a Realtor, and some of the terms were hard to wrap my head around. So I started turning them into a game.</p>
-        <p>When I showed it to my wife, she thought it could be a real game someday. Years of playtesting with friends, family and even strangers later, here we are.</p>
-        <p class="sig">Matt, East Texas</p>
+        <h2 id="story-title">{{ c.story.heading | escape }}</h2>
+        {%- for p in c.story.paragraphs %}
+        <p>{{ p | escape }}</p>
+        {%- endfor %}
+        <p class="sig">{{ c.story.signature | escape }}</p>
       </div>
     </div>
   </section>
+{%- endif %}
+{%- endfor %}
 </main>
 
 <footer>
   <div class="wrap">
-    <img src="furthew.webp" alt="Furthew Entertainment logo" width="84" height="84" loading="lazy">
-    <p><strong style="color:var(--cream)">Furthew Entertainment</strong></p>
+    <img src="{{ c.brand.logo }}" alt="{{ c.brand.name | escape }} logo" width="84" height="84" loading="lazy">
+    <p><strong style="color:var(--cream)">{{ c.brand.name | escape }}</strong></p>
     <div class="foot-links">
-      <a href="https://www.facebook.com/furthewentertainment" target="_blank" rel="noopener">Facebook</a>
-      <a href="https://furthew-dev.github.io/ad-valorem-pocket/" target="_blank" rel="noopener">Free demo</a>
-      <a href="#launch">Kickstarter</a>
+      <a href="{{ c.brand.facebook_url }}" target="_blank" rel="noopener">Facebook</a>
+      <a href="{{ c.brand.demo_url }}" target="_blank" rel="noopener">{{ c.footer.demo_link_label | escape }}</a>
+      {%- if ks_live %}
+      <a href="{{ c.kickstarter.url }}" target="_blank" rel="noopener">{{ c.footer.kickstarter_link_label | escape }}</a>
+      {%- elsif c.launch.show %}
+      <a href="#launch">{{ c.footer.kickstarter_link_label | escape }}</a>
+      {%- endif %}
     </div>
-    <p>&copy; <span id="yr">2026</span> Furthew Entertainment. Ad Valorem is a game by Matt Parker.</p>
+    <p>&copy; {{ site.time | date: "%Y" }} {{ c.brand.name | escape }}. {{ c.footer.credit | escape }}</p>
   </div>
 </footer>
 
 <script>
-/* Paste the Kickstarter pre-launch link here once Kickstarter activates it. */
-var KICKSTARTER_URL = "";
-
 (function () {
-  var btn = document.getElementById("ks-btn");
-  if (KICKSTARTER_URL) {
-    btn.href = KICKSTARTER_URL;
-    btn.target = "_blank";
-    btn.rel = "noopener";
-    btn.classList.remove("soon");
-    document.getElementById("ks-label").textContent = "Notify me on Kickstarter";
-    document.getElementById("ks-sub").textContent = "Launching Feb 2, 2027";
-    document.querySelectorAll('a[href="#launch"]').forEach(function (a) {
-      if (a !== btn) { a.href = KICKSTARTER_URL; a.target = "_blank"; a.rel = "noopener"; }
-    });
-  }
-  document.getElementById("yr").textContent = new Date().getFullYear();
-
-  // Feb 2, 2027, 9:00 AM Central (15:00 UTC)
-  var launch = Date.UTC(2027, 1, 2, 15, 0, 0);
+  var el = document.getElementById("count");
+  if (!el) return;
+  var parts = (el.getAttribute("data-launch") || "").split("-").map(Number);
+  if (parts.length !== 3 || !parts[0]) return;
+  // 9:00 AM Central (UTC-6 in winter) on launch day
+  var launch = Date.UTC(parts[0], parts[1] - 1, parts[2], 15, 0, 0);
   var d = document.getElementById("cd-d"), h = document.getElementById("cd-h"), m = document.getElementById("cd-m");
   function tick() {
     var ms = launch - Date.now();
-    if (ms <= 0) {
-      document.getElementById("count").innerHTML = '<div><b>Live now!</b></div>';
-      return;
-    }
+    if (ms <= 0) { el.innerHTML = "<div><b></b></div>"; el.querySelector("b").textContent = el.getAttribute("data-live"); return; }
     d.textContent = Math.floor(ms / 864e5);
     h.textContent = Math.floor(ms / 36e5) % 24;
     m.textContent = Math.floor(ms / 6e4) % 60;

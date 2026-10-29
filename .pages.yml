@@ -1,0 +1,256 @@
+media:
+  input: images
+  output: /images
+  categories: [image]
+
+content:
+  - name: site
+    label: Furthew.com page
+    type: file
+    path: _data/content.yml
+    format: yaml
+    fields:
+      - name: kickstarter
+        label: Kickstarter button
+        type: object
+        fields:
+          - name: url
+            label: Pre-launch or campaign link (leave empty until Kickstarter gives you one)
+            type: string
+          - name: label_live
+            label: Button text when the link is set
+            type: string
+          - name: sublabel_live
+            label: Small text under the button when the link is set
+            type: string
+          - name: label_soon
+            label: Button text while there is no link yet
+            type: string
+          - name: sublabel_soon
+            label: Small text under the button while there is no link yet
+            type: string
+
+      - name: hero
+        label: Top of page
+        type: object
+        fields:
+          - name: logo
+            label: Logo image
+            type: image
+          - name: logo_alt
+            label: Logo description (for screen readers)
+            type: string
+          - name: tagline
+            label: Tagline
+            type: string
+          - name: intro
+            label: Intro paragraph
+            type: text
+          - name: demo_label
+            label: Demo button text
+            type: string
+          - name: facebook_label
+            label: Facebook button text
+            type: string
+
+      - name: brand
+        label: Links and brand
+        type: object
+        fields:
+          - name: name
+            label: Company name
+            type: string
+          - name: logo
+            label: Company logo (round, used in the header and footer)
+            type: image
+          - name: facebook_url
+            label: Facebook page link
+            type: string
+          - name: demo_url
+            label: Free demo link
+            type: string
+          - name: follow_label
+            label: Small Follow button text (top right)
+            type: string
+
+      - name: section_order
+        label: Section order (drag to reorder, remove to hide)
+        type: select
+        list: true
+        options:
+          values:
+            - name: launch
+              label: Kickstarter countdown
+            - name: how
+              label: How it plays (corkboard)
+            - name: market
+              label: On the market (property cards)
+            - name: pocket
+              label: Play it on your phone
+            - name: story
+              label: How it started (notepad)
+
+      - name: launch
+        label: Kickstarter countdown
+        type: object
+        fields:
+          - name: show
+            label: Show this section
+            type: boolean
+          - name: heading
+            label: Heading
+            type: string
+          - name: date
+            label: Launch date (countdown ends 9:00 AM Central)
+            type: date
+            options:
+              format: yyyy-MM-dd
+          - name: note
+            label: Note under the countdown
+            type: text
+          - name: live_text
+            label: Text shown once the countdown reaches zero
+            type: string
+
+      - name: how
+        label: How it plays (corkboard)
+        type: object
+        fields:
+          - name: show
+            label: Show this section
+            type: boolean
+          - name: heading
+            label: Heading
+            type: string
+          - name: notes
+            label: Sticky notes
+            type: object
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{title}"
+            fields:
+              - name: title
+                label: Title
+                type: string
+              - name: text
+                label: Text
+                type: text
+              - name: color
+                label: Note color
+                type: select
+                options:
+                  values: [yellow, pink, blue, green]
+          - name: win_title
+            label: Winning line
+            type: string
+          - name: win_text
+            label: Winning line details
+            type: text
+
+      - name: market
+        label: On the market (property cards)
+        type: object
+        fields:
+          - name: show
+            label: Show this section
+            type: boolean
+          - name: kicker
+            label: Small handwritten label
+            type: string
+          - name: heading
+            label: Heading
+            type: string
+          - name: intro
+            label: Intro
+            type: text
+          - name: listings
+            label: Property cards (square images work best)
+            type: object
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{name}"
+            fields:
+              - name: name
+                label: Property name
+                type: string
+              - name: image
+                label: Card image
+                type: image
+
+      - name: pocket
+        label: Play it on your phone
+        type: object
+        fields:
+          - name: show
+            label: Show this section
+            type: boolean
+          - name: kicker
+            label: Small handwritten label
+            type: string
+          - name: heading
+            label: Heading
+            type: string
+          - name: points
+            label: Bullet points
+            type: string
+            list: true
+          - name: button_label
+            label: Button text
+            type: string
+          - name: room_key
+            label: Room key shown on the phone
+            type: string
+
+      - name: story
+        label: How it started (notepad)
+        type: object
+        fields:
+          - name: show
+            label: Show this section
+            type: boolean
+          - name: heading
+            label: Heading
+            type: string
+          - name: paragraphs
+            label: Paragraphs
+            type: text
+            list: true
+          - name: signature
+            label: Signature
+            type: string
+
+      - name: footer
+        label: Footer
+        type: object
+        fields:
+          - name: credit
+            label: Credit line
+            type: string
+          - name: demo_link_label
+            label: Demo link text
+            type: string
+          - name: kickstarter_link_label
+            label: Kickstarter link text
+            type: string
+
+      - name: seo
+        label: Search and sharing (Google, Facebook previews)
+        type: object
+        fields:
+          - name: title
+            label: Browser tab and Google title
+            type: string
+          - name: description
+            label: Google description
+            type: text
+          - name: share_title
+            label: Facebook preview title
+            type: string
+          - name: share_description
+            label: Facebook preview description
+            type: text
+          - name: share_image
+            label: Facebook preview image (1200 x 630)
+            type: image
