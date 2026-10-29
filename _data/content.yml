@@ -1,0 +1,103 @@
+# Everything on furthew.com comes from this file.
+# Edit it in Pages CMS (app.pagescms.org), or carefully here on GitHub.
+
+seo:
+  title: "Ad Valorem | A real estate strategy game by Furthew Entertainment"
+  description: "Ad Valorem is a real estate strategy game for 2 to 8 players. Buy property, collect rent, survive Fortuna and sabotage your friends. Coming to Kickstarter February 2, 2027."
+  share_title: "Ad Valorem: You have to plan to prosper"
+  share_description: "A real estate strategy game for 2 to 8 players. On the table and on your phone. Coming to Kickstarter February 2, 2027."
+  share_image: /og.jpg
+
+brand:
+  name: "Furthew Entertainment"
+  logo: /furthew.webp
+  facebook_url: "https://www.facebook.com/furthewentertainment"
+  demo_url: "https://furthew-dev.github.io/ad-valorem-pocket/"
+  follow_label: "Follow"
+
+section_order:
+  - launch
+  - how
+  - market
+  - pocket
+  - story
+
+hero:
+  logo: /logo.webp
+  logo_alt: "Ad Valorem logo: a gold house outline above the words Ad Valorem"
+  tagline: "You have to plan to prosper"
+  intro: "A real estate strategy game for 2 to 8 players. Buy property, collect rent, survive Fortuna and sabotage your friends. On the table and on your phone."
+  demo_label: "Play the free demo"
+  facebook_label: "Follow on Facebook"
+
+kickstarter:
+  url: ""
+  label_live: "Notify me on Kickstarter"
+  sublabel_live: "Launching Feb 2, 2027"
+  label_soon: "Kickstarter: launching Feb 2, 2027"
+  sublabel_soon: "\"Notify me\" link coming soon"
+
+launch:
+  show: true
+  heading: "Kickstarter launch"
+  date: "2027-02-02"
+  note: "Tuesday, February 2, 2027. Follow us on Facebook and we'll post the moment it goes live."
+  live_text: "Live now!"
+
+how:
+  show: true
+  heading: "How it plays"
+  notes:
+    - title: "Buy property"
+      text: "Four properties, max. Your portfolio is capped, so every purchase counts."
+      color: yellow
+    - title: "Collect rent"
+      text: "Rent rolls in every round. So does 10% interest on whatever you borrowed."
+      color: pink
+    - title: "Survive Fortuna"
+      text: "One card each round. An inheritance, or a lawsuit. A lucky break, or a storm."
+      color: blue
+    - title: "Sabotage friends"
+      text: "Make a rival draw Fortuna. When their luck turns bad, you collect."
+      color: green
+  win_title: "The player with the most wealth wins."
+  win_text: "Hold more than 200 Rebucks with every loan paid off, and outmaneuver everyone at the table."
+
+market:
+  show: true
+  kicker: "Now listing"
+  heading: "On the market"
+  intro: "From tiny houses to castles. Pick the right listings and let the rent work for you."
+  listings:
+    - name: "Tiny House"
+      image: /tinyhouse.webp
+    - name: "Mansion"
+      image: /mansion.webp
+    - name: "Lighthouse"
+      image: /lighthouse.webp
+    - name: "Castle"
+      image: /castle.webp
+
+pocket:
+  show: true
+  kicker: "Ad Valorem Pocket"
+  heading: "Play it on your phone"
+  points:
+    - "One person hosts. Everyone else joins free with a room key."
+    - "No ads. Game night, not microtransactions."
+    - "Coming to iOS and Android. Try the web version today."
+  button_label: "Play the free demo"
+  room_key: "ROOM SJ4-GT7"
+
+story:
+  show: true
+  heading: "How it started"
+  paragraphs:
+    - "In 2017 I was training to become a Realtor, and some of the terms were hard to wrap my head around. So I started turning them into a game."
+    - "When I showed it to my wife, she thought it could be a real game someday. Years of playtesting with friends, family and even strangers later, here we are."
+  signature: "Matt, East Texas"
+
+footer:
+  credit: "Ad Valorem is a game by Matt Parker."
+  demo_link_label: "Free demo"
+  kickstarter_link_label: "Kickstarter"
