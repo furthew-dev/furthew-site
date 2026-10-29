@@ -77,6 +77,8 @@ pocket:
     - Coming to iOS and Android. Try the web version today.
   button_label: Play the free demo
   room_key: ROOM SJ4-GT7
+  screen_image: /images/lobby-screen.webp
+  screen_alt: "The Ad Valorem Pocket lobby screen showing room key V37-KL7 and the host's character"
 story:
   show: true
   heading: How it started
