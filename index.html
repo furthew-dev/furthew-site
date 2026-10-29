@@ -125,6 +125,9 @@ h2{font:700 clamp(1.6rem,5.5vw,2.3rem)/1.15 var(--head);margin:0 0 .4em;letter-s
 .phone{justify-self:center;width:200px;aspect-ratio:9/18;border-radius:28px;background:var(--ink);padding:10px;box-shadow:var(--shadow)}
 .phone-screen{height:100%;border-radius:20px;background:radial-gradient(circle at 50% 30%,#3a332d,var(--ink) 70%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;overflow:hidden}
 .phone-screen img.mini{width:78%}
+.phone.has-screen{aspect-ratio:auto;width:220px;padding:9px;border-radius:30px}
+.phone.has-screen .phone-screen{height:auto;display:block;border-radius:22px;background:#45353d}
+.phone.has-screen .phone-screen img{width:100%;height:auto;display:block}
 .phone-screen .key{font:700 .8rem/1 var(--head);background:var(--gold);color:var(--ink);padding:8px 12px;border-radius:8px;letter-spacing:.12em}
 
 /* story */
@@ -260,12 +263,20 @@ footer a{color:var(--cream)}
           </ul>
           <a class="btn btn-demo" href="{{ c.brand.demo_url }}" target="_blank" rel="noopener" style="max-width:320px"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M8 5v14l11-7L8 5Z"/></svg> {{ c.pocket.button_label | escape }}</a>
         </div>
+        {%- if c.pocket.screen_image and c.pocket.screen_image != "" %}
+        <div class="phone has-screen">
+          <div class="phone-screen">
+            <img src="{{ c.pocket.screen_image }}" alt="{{ c.pocket.screen_alt | default: 'Ad Valorem Pocket game screen' | escape }}" loading="lazy">
+          </div>
+        </div>
+        {%- else %}
         <div class="phone" aria-hidden="true">
           <div class="phone-screen">
             <img class="mini" src="{{ c.hero.logo }}" alt="" width="720" height="644" loading="lazy">
             <span class="key">{{ c.pocket.room_key | escape }}</span>
           </div>
         </div>
+        {%- endif %}
       </div>
     </div>
   </section>

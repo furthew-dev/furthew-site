@@ -199,8 +199,14 @@ content:
           - name: button_label
             label: Button text
             type: string
+          - name: screen_image
+            label: Phone screenshot (a tall game screen; leave empty to show the logo and room key instead)
+            type: image
+          - name: screen_alt
+            label: Screenshot description (for screen readers)
+            type: string
           - name: room_key
-            label: Room key shown on the phone
+            label: Room key shown on the phone (only used when there is no screenshot)
             type: string
 
       - name: story
