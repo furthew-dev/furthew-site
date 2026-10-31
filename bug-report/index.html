@@ -74,7 +74,7 @@ footer{text-align:center;font-size:.85rem;color:var(--ink-soft);margin-top:18px}
         <h1>Report a bug</h1>
         <p class="lede">Something broke or looked wrong in Ad Valorem? Tell us what happened and we'll look into it.</p>
 
-        <form id="bug-form" action="https://formsubmit.co/furthewentertainment@gmail.com" method="POST" novalidate>
+        <form id="bug-form" action="https://formsubmit.co/3dc039314a7daddd7564076b06611483" method="POST" novalidate>
           <input type="hidden" name="_subject" value="Ad Valorem bug report">
           <input type="hidden" name="_template" value="table">
           <input type="hidden" name="_captcha" value="false">
@@ -173,15 +173,19 @@ footer{text-align:center;font-size:.85rem;color:var(--ink-soft);margin-top:18px}
       method: "POST",
       headers: { "Content-Type": "application/json", "Accept": "application/json" },
       body: JSON.stringify(data)
-    }).then(function (r) { return r.json().catch(function () { return {}; }).then(function (j) { return { ok: r.ok, j: j }; }); })
+    }).then(function (r) { return r.json().catch(function () { return {}; }).then(function (j) { return { ok: r.ok, j: j }; }); },
+            function () { return { network: true }; })
       .then(function (res) {
-        if (res.ok && String(res.j.success) !== "false") { showDone(); }
-        else { throw new Error(res.j.message || "send failed"); }
-      })
-      .catch(function () {
+        if (res.ok && String(res.j.success) !== "false") { showDone(); return; }
+        if (res.network) {
+          // The quick send was blocked (privacy settings, old browser). Send the normal way instead.
+          form.submit();
+          return;
+        }
         btn.disabled = false; btn.textContent = "Send bug report";
         status.className = "status bad";
-        status.textContent = "Sorry, that didn't send. Check your connection and try again.";
+        status.textContent = "Sorry, bug reports can't be received right now. Please try again later.";
+        if (window.console) console.warn("Form service said:", res.j && res.j.message);
       });
   });
 })();
