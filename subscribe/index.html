@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Join the List | Ad Valorem by Furthew Entertainment</title>
+<meta name="description" content="Get Ad Valorem news by email: the Kickstarter launch on February 2, 2027, new reveals and early-backer perks.">
+<link rel="canonical" href="https://furthew.com/subscribe/">
+<meta property="og:title" content="Join the Ad Valorem launch list">
+<meta property="og:description" content="Be first to know when Ad Valorem launches on Kickstarter, February 2, 2027.">
+<meta property="og:url" content="https://furthew.com/subscribe/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://furthew.com/og.jpg">
+<meta name="theme-color" content="#c2c186">
+<link rel="icon" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<style>
+@font-face{font-family:"Comfortaa";src:url(/comfortaa-bold.woff2) format("woff2");font-weight:700;font-display:swap}
+@font-face{font-family:"AV Hand";src:url(/handwriting.woff2) format("woff2");font-display:swap}
+:root{
+  --wall:#c2c186; --wall-dark:#aead7f;
+  --desk:#d0b096; --desk-dark:#9c8572; --desk-edge:#655346;
+  --paper:#fbf6ea; --cream:#f3e9d4; --ink:#2b2622; --ink-soft:#5a4f45;
+  --gold-deep:#a9814f; --plum:#625467; --note-y:#fbe58a;
+  --shadow:0 2px 0 rgba(43,38,34,.08),0 10px 24px rgba(43,38,34,.16);
+  --hand:"AV Hand","Comic Sans MS","Bradley Hand",cursive;
+  --head:"Comfortaa",ui-rounded,"Arial Rounded MT Bold",system-ui,sans-serif;
+  --body:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;min-height:100vh;display:flex;flex-direction:column;background:var(--wall);color:var(--ink);font:400 17px/1.6 var(--body);overflow-x:hidden}
+a{color:inherit}
+img{max-width:100%;display:block}
+.wrap{width:100%;max-width:1040px;margin:0 auto;padding:0 16px}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+:focus-visible{outline:3px solid var(--plum);outline-offset:3px;border-radius:6px}
+
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 0}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font:700 .95rem/1.1 var(--head)}
+.brand img{width:38px;height:38px;border-radius:50%}
+.top a.back{text-decoration:none;font:700 .85rem/1 var(--head);background:rgba(43,38,34,.08);padding:9px 12px;border-radius:999px}
+.top a.back:hover{background:rgba(43,38,34,.14)}
+
+main{flex:1;background:linear-gradient(var(--wall-dark),var(--wall) 25%,var(--wall) 75%,var(--wall-dark));padding:24px 0 56px}
+
+/* notepad card */
+.pad{position:relative;max-width:520px;margin:0 auto;background:var(--paper);border-radius:10px;box-shadow:var(--shadow);padding:44px 26px 30px;
+  background-image:repeating-linear-gradient(transparent 0 31px,rgba(98,84,103,.13) 31px 32px);background-position:0 108px}
+.pad::before{content:"";position:absolute;top:0;left:0;right:0;height:22px;border-radius:10px 10px 0 0;background:var(--plum)}
+.pad::after{content:"";position:absolute;top:14px;left:24px;right:24px;height:14px;
+  background:radial-gradient(circle,var(--paper) 0 4px,transparent 5px) 0 0/28px 14px repeat-x}
+.kicker{font:400 1.45rem/1 var(--hand);color:var(--gold-deep);margin:0 0 .3em}
+h1{font:700 clamp(1.7rem,6vw,2.3rem)/1.15 var(--head);margin:0 0 .45em;letter-spacing:-.01em}
+.lede{margin:0 0 1.2em;color:var(--ink-soft)}
+.perks{list-style:none;margin:0 0 1.4em;padding:0}
+.perks li{position:relative;padding-left:28px;margin:.35em 0}
+.perks li::before{content:"";position:absolute;left:4px;top:.55em;width:12px;height:7px;border-left:3px solid var(--gold-deep);border-bottom:3px solid var(--gold-deep);transform:rotate(-45deg)}
+
+form{display:grid;gap:12px}
+label.f{font:700 .85rem/1 var(--head);color:var(--ink-soft)}
+input[type=email],input[type=text]{width:100%;min-height:52px;padding:12px 16px;border:2px solid var(--desk-dark);border-radius:12px;background:#fff;color:var(--ink);font:400 1rem/1.3 var(--body)}
+input[type=email]:focus,input[type=text]:focus{outline:none;border-color:var(--plum);box-shadow:0 0 0 3px rgba(98,84,103,.2)}
+.btn{display:flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:12px 18px;border-radius:999px;border:0;cursor:pointer;
+  font:700 1rem/1.2 var(--head);background:var(--ink);color:var(--paper);box-shadow:0 4px 0 #000;transition:transform .15s ease,box-shadow .15s ease}
+.btn:hover{transform:translateY(-1px);box-shadow:0 5px 0 #000}
+.btn:active{transform:translateY(2px);box-shadow:0 2px 0 #000}
+.btn[disabled]{opacity:.65;cursor:wait;transform:none}
+.fine{margin:4px 0 0;font-size:.82rem;color:var(--ink-soft)}
+.err{margin:0;color:#a3261b;font-size:.92rem;min-height:1.2em}
+.hp{position:absolute;left:-9999px}
+
+.done{display:none;text-align:center}
+.done.show{display:block}
+.note{position:relative;max-width:360px;margin:6px auto 18px;background:var(--note-y);padding:24px 20px 18px;border-radius:4px;transform:rotate(-1.5deg);box-shadow:var(--shadow)}
+.pin{position:absolute;top:-9px;left:50%;width:20px;height:20px;margin-left:-10px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#ff8f8f,#d93636 60%,#9e1f1f);box-shadow:0 3px 4px rgba(0,0,0,.3)}
+.note p{margin:0}
+.note .big{font:400 1.6rem/1.1 var(--hand);margin-bottom:.3em}
+.links{display:grid;gap:10px;max-width:360px;margin:0 auto}
+.btn-alt{background:var(--paper);color:var(--ink);box-shadow:0 4px 0 var(--desk-dark);border:2px solid var(--ink);text-decoration:none}
+.btn-alt:hover{box-shadow:0 5px 0 var(--desk-dark)}
+
+footer{background:var(--desk);border-top:6px solid var(--desk-edge);padding:22px 0;font-size:.9rem;color:var(--ink)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:8px 18px;justify-content:space-between;align-items:center}
+footer nav{display:flex;gap:16px;flex-wrap:wrap}
+
+@media (min-width:640px){.pad{padding:52px 44px 38px}}
+@media (prefers-reduced-motion:reduce){.btn{transition:none}}
+</style>
+</head>
+<body>
+<header class="wrap top">
+  <a class="brand" href="/"><img src="/images/FurthewEntertainment Logo.jpg" alt="" width="38" height="38">Furthew Entertainment</a>
+  <a class="back" href="/">&larr; Home</a>
+</header>
+
+<main>
+  <div class="wrap">
+    <section class="pad" aria-labelledby="t">
+      <div id="signup">
+        <p class="kicker">Don't miss launch day</p>
+        <h1 id="t">Join the Ad Valorem list</h1>
+        <p class="lede">Ad Valorem launches on Kickstarter on <strong>February 2, 2027</strong>. Get the news by email, a few times a month at most.</p>
+        <ul class="perks">
+          <li>An email the moment the campaign goes live</li>
+          <li>First look at reward tiers and the foil cards</li>
+          <li>Reminders for the early-backer bonus</li>
+        </ul>
+
+        <form id="ml-form" action="https://assets.mailerlite.com/jsonp/2756591/forms/203229619291161781/subscribe" method="post" target="ml-sink" novalidate>
+          <label class="f" for="email">Email address</label>
+          <input id="email" type="email" name="fields[email]" autocomplete="email" inputmode="email" placeholder="you@example.com" required>
+          <div class="hp" aria-hidden="true"><label>Leave this empty <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+          <input type="hidden" name="ml-submit" value="1">
+          <input type="hidden" name="anticsrf" value="true">
+          <p class="err" id="err" role="alert"></p>
+          <button class="btn" type="submit" id="go">Count me in</button>
+          <p class="fine">No spam. Unsubscribe any time with one click.</p>
+        </form>
+      </div>
+
+      <div class="done" id="done" tabindex="-1" aria-live="polite">
+        <div class="note"><span class="pin"></span>
+          <p class="big">You're on the list!</p>
+          <p id="done-msg">Check your inbox to confirm your email. If it's not there in a few minutes, look in spam or promotions.</p>
+        </div>
+        <div class="links">
+          <a class="btn" href="https://furthew-dev.github.io/ad-valorem-pocket/">Play the free demo</a>
+          <a class="btn btn-alt" href="https://www.facebook.com/furthewentertainment">Follow on Facebook</a>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<iframe name="ml-sink" title="" hidden></iframe>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; 2026 Furthew Entertainment. Ad Valorem is a game by Matt Parker.</span>
+    <nav><a href="https://www.facebook.com/furthewentertainment">Facebook</a><a href="https://furthew-dev.github.io/ad-valorem-pocket/">Free demo</a><a href="/">Home</a></nav>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var form=document.getElementById('ml-form'), email=document.getElementById('email'),
+      err=document.getElementById('err'), go=document.getElementById('go'),
+      signup=document.getElementById('signup'), done=document.getElementById('done');
+  var ok=/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+  function finish(){
+    signup.style.display='none';
+    done.classList.add('show');
+    done.focus();
+  }
+
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    err.textContent='';
+    if(form.website.value){ finish(); return; }           // bot filled the honeypot
+    if(!ok.test(email.value.trim())){ err.textContent='Please enter a valid email address.'; email.focus(); return; }
+    go.disabled=true; go.textContent='Signing you up…';
+
+    var data=new FormData(form); data.delete('website');
+    fetch(form.action,{method:'POST',body:data})
+      .then(function(r){ return r.json(); })
+      .then(function(j){
+        if(j && j.success){ finish(); }
+        else{
+          var m=j && j.errors && j.errors.fields && j.errors.fields.email;
+          err.textContent=(m && m[0]) || 'Something went wrong. Please try again.';
+          go.disabled=false; go.textContent='Count me in';
+        }
+      })
+      .catch(function(){
+        // Network or CORS trouble: post the plain form into the hidden frame instead.
+        form.website.disabled=true;
+        HTMLFormElement.prototype.submit.call(form);
+        finish();
+      });
+  });
+})();
+</script>
+</body>
+</html>
