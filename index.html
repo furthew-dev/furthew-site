@@ -1,6 +1,8 @@
 ---
 ---
 {%- assign c = site.data.content -%}
+{%- assign sub_url = c.subscribe.url | default: "/subscribe/" -%}
+{%- if c.subscribe.show == false -%}{%- assign sub_on = false -%}{%- else -%}{%- assign sub_on = true -%}{%- endif -%}
 {%- if c.kickstarter.url and c.kickstarter.url != "" -%}{%- assign ks_live = true -%}{%- else -%}{%- assign ks_live = false -%}{%- endif -%}
 <!doctype html>
 <html lang="en">
@@ -53,6 +55,10 @@ h2{font:700 clamp(1.6rem,5.5vw,2.3rem)/1.15 var(--head);margin:0 0 .4em;letter-s
 .brand img{width:38px;height:38px;border-radius:50%}
 .top a.fb{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font:700 .85rem/1 var(--head);background:rgba(43,38,34,.08);padding:9px 12px;border-radius:999px}
 .top a.fb:hover{background:rgba(43,38,34,.14)}
+.top .navlinks{display:flex;align-items:center;gap:8px}
+.top a.sub-pill{display:inline-flex;align-items:center;gap:7px;text-decoration:none;font:700 .85rem/1 var(--head);background:var(--ink);color:var(--paper);padding:9px 13px;border-radius:999px}
+.top a.sub-pill:hover{background:#000}
+@media (max-width:420px){.top a.fb .fb-label{display:none}.brand span{font-size:.85rem}}
 
 /* hero */
 .hero{position:relative;background:linear-gradient(var(--wall-dark),var(--wall) 30%,var(--wall) 70%,var(--wall-dark));padding:8px 0 0}
@@ -73,6 +79,9 @@ h2{font:700 clamp(1.6rem,5.5vw,2.3rem)/1.15 var(--head);margin:0 0 .4em;letter-s
 .btn-ks .sub{display:block;font:400 .78rem/1.2 var(--body);opacity:.8}
 .btn-demo{background:var(--ink);color:var(--paper);box-shadow:0 4px 0 #000}
 .btn-fb{background:transparent;border-color:var(--ink);color:var(--ink)}
+.btn-sub{background:var(--gold);color:var(--ink);box-shadow:0 4px 0 var(--gold-deep)}
+.btn-sub:hover{box-shadow:0 5px 0 var(--gold-deep)}
+.btn-sub .sub{display:block;font:400 .78rem/1.2 var(--body);opacity:.85}
 .btn-fb:hover{background:rgba(43,38,34,.06)}
 
 /* desk ledge */
@@ -88,6 +97,8 @@ h2{font:700 clamp(1.6rem,5.5vw,2.3rem)/1.15 var(--head);margin:0 0 .4em;letter-s
 .count b{display:block;font-size:2.1rem;line-height:1}
 .count span{font-size:.75rem;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-soft)}
 .launch p.small{margin:6px 0 0;font-size:.92rem;color:var(--ink-soft)}
+.launch a.remind{display:inline-flex;align-items:center;gap:8px;margin-top:14px;text-decoration:none;font:700 .92rem/1 var(--head);background:var(--ink);color:var(--paper);padding:11px 16px;border-radius:999px;box-shadow:0 3px 0 #000}
+.launch a.remind:hover{background:#000}
 
 /* corkboard */
 .board-sec{padding:56px 0}
@@ -171,8 +182,13 @@ footer a{color:var(--cream)}
 <header class="hero">
   <div class="wrap">
     <nav class="top" aria-label="Site">
-      <a class="brand" href="/"><img src="{{ c.brand.logo }}" alt="" width="38" height="38">{{ c.brand.name | escape }}</a>
-      <a class="fb" href="{{ c.brand.facebook_url }}" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.8c0-.9.3-1.6 1.6-1.6h1.7V4.3c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.3H7.4V14h2.7v8h3.4Z"/></svg> {{ c.brand.follow_label | escape }}</a>
+      <a class="brand" href="/"><img src="{{ c.brand.logo }}" alt="" width="38" height="38"><span>{{ c.brand.name | escape }}</span></a>
+      <div class="navlinks">
+        <a class="fb" href="{{ c.brand.facebook_url }}" target="_blank" rel="noopener" aria-label="{{ c.brand.follow_label | escape }} on Facebook"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.8c0-.9.3-1.6 1.6-1.6h1.7V4.3c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.3H7.4V14h2.7v8h3.4Z"/></svg> <span class="fb-label">{{ c.brand.follow_label | escape }}</span></a>
+        {%- if sub_on %}
+        <a class="sub-pill" href="{{ sub_url }}"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm1 2.4V17h16V7.4l-8 5.3-8-5.3ZM5.6 7 12 11.2 18.4 7H5.6Z"/></svg> {{ c.subscribe.nav_label | default: "Subscribe" | escape }}</a>
+        {%- endif %}
+      </div>
     </nav>
     <div class="hero-grid">
       <div class="poster"><img class="logo" src="{{ c.hero.logo }}" alt="{{ c.hero.logo_alt | escape }}" width="720" height="644"></div>
@@ -187,6 +203,10 @@ footer a{color:var(--cream)}
           {%- else %}
           <a class="btn btn-ks soon" href="#launch"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 3h4v6.2L15.4 3H20l-5.6 8.3L20 21h-4.7L11 13.6V21H7V3Z"/></svg>
             <span><span>{{ c.kickstarter.label_soon | escape }}</span><span class="sub">{{ c.kickstarter.sublabel_soon | escape }}</span></span></a>
+          {%- endif %}
+          {%- if sub_on %}
+          <a class="btn btn-sub" href="{{ sub_url }}"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm1 2.4V17h16V7.4l-8 5.3-8-5.3ZM5.6 7 12 11.2 18.4 7H5.6Z"/></svg>
+            <span><span>{{ c.subscribe.hero_label | default: "Join the launch list" | escape }}</span><span class="sub">{{ c.subscribe.hero_sublabel | default: "Get an email the day we launch" | escape }}</span></span></a>
           {%- endif %}
           <a class="btn btn-demo" href="{{ c.brand.demo_url }}" target="_blank" rel="noopener"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M8 5v14l11-7L8 5Z"/></svg> {{ c.hero.demo_label | escape }}</a>
           <a class="btn btn-fb" href="{{ c.brand.facebook_url }}" target="_blank" rel="noopener"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.8c0-.9.3-1.6 1.6-1.6h1.7V4.3c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.3H7.4V14h2.7v8h3.4Z"/></svg> {{ c.hero.facebook_label | escape }}</a>
@@ -212,6 +232,9 @@ footer a{color:var(--cream)}
           <div><b id="cd-m">--</b><span>min</span></div>
         </div>
         <p class="small">{{ c.launch.note | escape }}</p>
+        {%- if sub_on %}
+        <a class="remind" href="{{ sub_url }}"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm1 2.4V17h16V7.4l-8 5.3-8-5.3ZM5.6 7 12 11.2 18.4 7H5.6Z"/></svg> {{ c.subscribe.launch_label | default: "Email me a reminder" | escape }}</a>
+        {%- endif %}
       </div>
     </div>
   </section>
@@ -302,6 +325,9 @@ footer a{color:var(--cream)}
     <img src="{{ c.brand.logo }}" alt="{{ c.brand.name | escape }} logo" width="84" height="84" loading="lazy">
     <p><strong style="color:var(--cream)">{{ c.brand.name | escape }}</strong></p>
     <div class="foot-links">
+      {%- if sub_on %}
+      <a href="{{ sub_url }}">{{ c.subscribe.footer_label | default: "Subscribe" | escape }}</a>
+      {%- endif %}
       <a href="{{ c.brand.facebook_url }}" target="_blank" rel="noopener">Facebook</a>
       <a href="{{ c.brand.demo_url }}" target="_blank" rel="noopener">{{ c.footer.demo_link_label | escape }}</a>
       {%- if ks_live %}

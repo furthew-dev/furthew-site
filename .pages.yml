@@ -30,6 +30,32 @@ content:
             label: Small text under the button while there is no link yet
             type: string
 
+      - name: subscribe
+        label: Email list (Subscribe links)
+        type: object
+        fields:
+          - name: show
+            label: Show the Subscribe links
+            type: boolean
+          - name: url
+            label: Subscribe page link
+            type: string
+          - name: hero_label
+            label: Big button text (top of page)
+            type: string
+          - name: hero_sublabel
+            label: Small text under the big button
+            type: string
+          - name: nav_label
+            label: Small button text (top right)
+            type: string
+          - name: launch_label
+            label: Button text under the countdown
+            type: string
+          - name: footer_label
+            label: Footer link text
+            type: string
+
       - name: hero
         label: Top of page
         type: object
