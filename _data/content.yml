@@ -3,6 +3,14 @@ kickstarter:
   sublabel_live: Launching Feb 2, 2027
   label_soon: "Kickstarter: launching Feb 2, 2027"
   sublabel_soon: '"Notify me" link coming soon'
+subscribe:
+  show: true
+  url: /subscribe/
+  hero_label: Join the launch list
+  hero_sublabel: Get an email the day we launch
+  nav_label: Subscribe
+  launch_label: Email me a reminder
+  footer_label: Subscribe
 hero:
   logo: /images/AD VALOREM.png
   logo_alt: "Ad Valorem logo: a diamond shaped background made of houses with the
