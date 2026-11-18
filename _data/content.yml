@@ -1,4 +1,5 @@
 kickstarter:
+  url: https://www.kickstarter.com/projects/furthew/ad-valorem-a-real-estate-strategy-game
   label_live: Notify me on Kickstarter
   sublabel_live: Launching Feb 2, 2027
   label_soon: "Kickstarter: launching Feb 2, 2027"
@@ -119,8 +120,8 @@ home:
       icon: game
       image: /images/AD VALOREM.png
     - label: Ad Valorem on Kickstarter
-      sublabel: Launches Feb 2, 2027 · Get a reminder
-      url: /subscribe/
+      sublabel: Launches Feb 2, 2027 · Tap Notify me
+      url: https://www.kickstarter.com/projects/furthew/ad-valorem-a-real-estate-strategy-game
       icon: kickstarter
     - label: Play Ad Valorem Pocket free
       sublabel: Runs in your phone's browser
