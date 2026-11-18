@@ -83,6 +83,7 @@ a.link:active{transform:translateY(2px);box-shadow:0 2px 0 var(--desk-edge)}
 
 footer{background:var(--desk);border-top:6px solid var(--desk-edge);padding:18px 16px;font-size:.85rem;text-align:center}
 footer p{margin:0}
+footer a{color:inherit}
 
 @media (prefers-reduced-motion:reduce){.link{transition:none}}
 </style>
@@ -150,7 +151,7 @@ src="https://www.facebook.com/tr?id=2889180588007360&ev=PageView&noscript=1"
 </main>
 
 <footer>
-  <p>&copy; {{ site.time | date: "%Y" }} {{ c.brand.name | escape }}</p>
+  <p>&copy; {{ site.time | date: "%Y" }} {{ c.brand.name | escape }} · <a href="/privacy/">Privacy</a></p>
 </footer>
 </body>
 </html>
