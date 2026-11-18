@@ -62,7 +62,7 @@ a.link:active{transform:translateY(2px);box-shadow:0 2px 0 var(--desk-edge)}
 .chip.pic{background:var(--ink);overflow:hidden;padding:0}
 .chip.pic img{width:100%;height:100%;object-fit:cover}
 .ic-kickstarter{background:#05ce78;color:#05301d}
-.ic-play{background:var(--plum)}
+.ic-play,.ic-controller{background:var(--plum)}
 .ic-blog{background:var(--gold-deep)}
 .ic-facebook{background:#1877f2}
 .txt{flex:1;min-width:0;display:flex;flex-direction:column}
@@ -72,7 +72,8 @@ a.link:active{transform:translateY(2px);box-shadow:0 2px 0 var(--desk-edge)}
 
 /* featured first link */
 .link.feature{min-height:88px}
-.link.feature .chip{width:66px;height:66px;border-radius:14px}
+.link.feature .chip{width:62px;height:62px;border-radius:14px}
+.link.feature .chip svg{width:28px;height:28px}
 .link.feature .label{font-size:1.15rem}
 
 /* coming soon */
@@ -81,11 +82,25 @@ a.link:active{transform:translateY(2px);box-shadow:0 2px 0 var(--desk-edge)}
 .tag{position:absolute;top:-11px;right:14px;background:var(--note-y);font:400 1.05rem/1 var(--hand);padding:5px 10px 4px;
   border-radius:3px;transform:rotate(3deg);box-shadow:0 3px 6px rgba(43,38,34,.18)}
 
-footer{background:var(--desk);border-top:6px solid var(--desk-edge);padding:18px 16px;font-size:.85rem;text-align:center}
-footer p{margin:0}
-footer a{color:inherit}
+/* social circles */
+.socials{list-style:none;margin:28px 0 0;padding:0;display:flex;justify-content:center;gap:16px}
+.social{display:grid;place-items:center;width:54px;height:54px;border-radius:50%;background:var(--paper);color:var(--ink);
+  border:2px solid var(--ink);box-shadow:0 4px 0 var(--desk-edge);transition:transform .15s ease,box-shadow .15s ease}
+.social:hover{transform:translateY(-2px);box-shadow:0 6px 0 var(--desk-edge)}
+.social:active{transform:translateY(2px);box-shadow:0 2px 0 var(--desk-edge)}
+.social.s-facebook{background:#1877f2;color:#fff}
 
-@media (prefers-reduced-motion:reduce){.link{transition:none}}
+footer{background:var(--desk);border-top:6px solid var(--desk-edge);padding:24px 16px 20px;font-size:.92rem;text-align:center}
+footer a{color:inherit}
+.contact h2{font:700 1rem/1.2 var(--head);margin:0 0 8px}
+.contact ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;justify-content:center;gap:6px 22px}
+.contact a{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:600;min-height:32px}
+.contact a:hover{text-decoration:underline}
+.legal{margin:16px auto 0;padding-top:12px;border-top:1px solid rgba(43,38,34,.18);max-width:520px;font-size:.82rem;color:var(--ink-soft)}
+.legal p{margin:0}
+.legal nav{display:flex;justify-content:center;gap:18px;margin-bottom:4px}
+
+@media (prefers-reduced-motion:reduce){.link,.social{transition:none}}
 </style>
 <!-- Meta Pixel Code -->
 <script>
@@ -119,7 +134,7 @@ src="https://www.facebook.com/tr?id=2889180588007360&ev=PageView&noscript=1"
     {%- if l.url and l.url != "" -%}{%- assign has_url = true -%}{%- endif -%}
     {%- assign ext = false -%}
     {%- if has_url and l.url contains "://" -%}{%- assign ext = true -%}{%- endif -%}
-    {%- capture cls -%}link{% if forloop.first and l.image %} feature{% endif %}{% unless has_url %} soon{% endunless %}{%- endcapture -%}
+    {%- capture cls -%}link{% if forloop.first %} feature{% endif %}{% unless has_url %} soon{% endunless %}{%- endcapture -%}
     {%- capture inner -%}
       {%- if l.image and l.image != "" -%}
         <span class="chip pic"><img src="{{ l.image }}" alt="" width="66" height="66" loading="lazy"></span>
@@ -127,6 +142,7 @@ src="https://www.facebook.com/tr?id=2889180588007360&ev=PageView&noscript=1"
         <span class="chip ic-{{ l.icon }}" aria-hidden="true">
         {%- case l.icon -%}
           {%- when "kickstarter" -%}<svg width="22" height="22" viewBox="0 0 24 24"><path fill="currentColor" d="M7 3h4v6.2L15.4 3H20l-5.6 8.3L20 21h-4.7L11 13.6V21H7V3Z"/></svg>
+          {%- when "controller" -%}<svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><path d="M7.2 6.5h9.6a5.2 5.2 0 0 1 5.1 6.3l-.8 3.9a2.4 2.4 0 0 1-4.2 1.1l-2.3-2.7H9.4l-2.3 2.7a2.4 2.4 0 0 1-4.2-1.1l-.8-3.9a5.2 5.2 0 0 1 5.1-6.3Zm-.6 3.3v1.5H5.1v1.6h1.5v1.5h1.6v-1.5h1.5v-1.6H8.2V9.8H6.6Z"/><circle cx="16.4" cy="10.6" r="1.15" fill="var(--plum)"/><circle cx="18.6" cy="12.9" r="1.15" fill="var(--plum)"/></svg>
           {%- when "play" -%}<svg width="22" height="22" viewBox="0 0 24 24"><path fill="currentColor" d="M8 5v14l11-7L8 5Z"/></svg>
           {%- when "blog" -%}<svg width="22" height="22" viewBox="0 0 24 24"><path fill="currentColor" d="M5 3h10l4 4v14H5V3Zm9 1.5V8h3.5L14 4.5ZM8 11v1.6h8V11H8Zm0 3.2v1.6h8v-1.6H8Zm0 3.2V19h5v-1.6H8Z"/></svg>
           {%- when "tiktok" -%}<svg width="22" height="22" viewBox="0 0 24 24"><path fill="currentColor" d="M16.6 3c.3 2.2 1.6 3.7 3.9 3.9v3.2c-1.4.1-2.7-.3-3.9-1.1v5.9c0 3.9-3.3 6.4-6.9 5.6-4.4-1-5.7-6.7-2-9.2 1.1-.7 2.4-1 3.8-.8v3.3c-.6-.2-1.3-.2-1.9.1-1.5.7-1.3 3.1.4 3.5 1.4.4 3-.6 3-2.4V3h3.6Z"/></svg>
@@ -148,10 +164,43 @@ src="https://www.facebook.com/tr?id=2889180588007360&ev=PageView&noscript=1"
     </li>
   {%- endfor %}
   </ul>
+
+  {%- if h.socials and h.socials.size > 0 %}
+  <ul class="socials" aria-label="Follow {{ c.brand.name | escape }}">
+  {%- for s in h.socials %}
+    <li><a class="social s-{{ s.icon }}" href="{{ s.url }}" target="_blank" rel="noopener" aria-label="{{ s.label | escape }}" title="{{ s.label | escape }}">
+    {%- case s.icon -%}
+      {%- when "facebook" -%}<svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.8c0-.9.3-1.6 1.6-1.6h1.7V4.3c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.3H7.4V14h2.7v8h3.4Z"/></svg>
+      {%- when "tiktok" -%}<svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16.6 3c.3 2.2 1.6 3.7 3.9 3.9v3.2c-1.4.1-2.7-.3-3.9-1.1v5.9c0 3.9-3.3 6.4-6.9 5.6-4.4-1-5.7-6.7-2-9.2 1.1-.7 2.4-1 3.8-.8v3.3c-.6-.2-1.3-.2-1.9.1-1.5.7-1.3 3.1.4 3.5 1.4.4 3-.6 3-2.4V3h3.6Z"/></svg>
+      {%- when "instagram" -%}<svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7.5 3h9A4.5 4.5 0 0 1 21 7.5v9a4.5 4.5 0 0 1-4.5 4.5h-9A4.5 4.5 0 0 1 3 16.5v-9A4.5 4.5 0 0 1 7.5 3Zm0 2A2.5 2.5 0 0 0 5 7.5v9A2.5 2.5 0 0 0 7.5 19h9a2.5 2.5 0 0 0 2.5-2.5v-9A2.5 2.5 0 0 0 16.5 5h-9ZM12 8a4 4 0 1 1 0 8 4 4 0 0 1 0-8Zm0 2a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm4.6-3.4a1 1 0 1 1 0 2 1 1 0 0 1 0-2Z"/></svg>
+      {%- when "youtube" -%}<svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.5 2.5 0 0 0 2.4 7.2C2 8.8 2 12 2 12s0 3.2.4 4.8a2.5 2.5 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8c.4-1.6.4-4.8.4-4.8s0-3.2-.4-4.8ZM10 15V9l5.2 3L10 15Z"/></svg>
+      {%- else -%}<svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm1 2.4V17h16V7.4l-8 5.3-8-5.3ZM5.6 7 12 11.2 18.4 7H5.6Z"/></svg>
+    {%- endcase -%}
+    </a></li>
+  {%- endfor %}
+  </ul>
+  {%- endif %}
 </main>
 
 <footer>
-  <p>&copy; {{ site.time | date: "%Y" }} {{ c.brand.name | escape }} · <a href="/privacy/">Privacy</a></p>
+  {%- if h.contact_email or h.contact_phone %}
+  <section class="contact" aria-labelledby="contact-h">
+    <h2 id="contact-h">Contact us</h2>
+    <ul>
+      {%- if h.contact_email %}
+      <li><a href="mailto:{{ h.contact_email }}"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm1 2.4V17h16V7.4l-8 5.3-8-5.3ZM5.6 7 12 11.2 18.4 7H5.6Z"/></svg>{{ h.contact_email | escape }}</a></li>
+      {%- endif %}
+      {%- if h.contact_phone %}
+      {%- assign tel = h.contact_phone | remove: "-" | remove: " " | remove: "(" | remove: ")" | remove: "." %}
+      <li><a href="tel:+1{{ tel }}"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1L6.6 10.8Z"/></svg>{{ h.contact_phone | escape }}</a></li>
+      {%- endif %}
+    </ul>
+  </section>
+  {%- endif %}
+  <div class="legal">
+    <nav aria-label="Legal"><a href="/terms/">Terms &amp; Conditions</a><a href="/privacy/">Privacy Policy</a></nav>
+    <p>&copy; {{ site.time | date: "%Y" }} {{ c.brand.name | escape }}</p>
+  </div>
 </footer>
 </body>
 </html>
