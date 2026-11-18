@@ -38,10 +38,32 @@ content:
                 label: Icon
                 type: select
                 options:
-                  values: [game, kickstarter, play, blog, tiktok, facebook, email, link]
+                  values: [kickstarter, controller, game, play, blog, email, link]
               - name: image
                 label: Picture instead of an icon (optional, square works best)
                 type: image
+          - name: socials
+            label: Round social icons under the links
+            type: object
+            list: true
+            fields:
+              - name: label
+                label: Name (read aloud by screen readers)
+                type: string
+              - name: url
+                label: Link
+                type: string
+              - name: icon
+                label: Icon
+                type: select
+                options:
+                  values: [facebook, tiktok, instagram, youtube, email]
+          - name: contact_email
+            label: Contact email (shown in the footer)
+            type: string
+          - name: contact_phone
+            label: Contact phone (shown in the footer)
+            type: string
           - name: seo_title
             label: Browser tab and Google title
             type: string
