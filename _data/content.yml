@@ -114,30 +114,31 @@ seo:
 home:
   bio: Games and apps by Matt Parker.
   links:
-    - label: Ad Valorem
-      sublabel: The real estate strategy game
-      url: /ad-valorem/
-      icon: game
-      image: /images/AD VALOREM.png
     - label: Ad Valorem on Kickstarter
       sublabel: Launches Feb 2, 2027 · Tap Notify me
       url: https://www.kickstarter.com/projects/furthew/ad-valorem-a-real-estate-strategy-game
       icon: kickstarter
-    - label: Play Ad Valorem Pocket free
+    - label: Play Ad Valorem Pocket Edition free
       sublabel: Runs in your phone's browser
       url: https://furthew-dev.github.io/ad-valorem-pocket/
-      icon: play
+      icon: controller
+    - label: About Ad Valorem
+      sublabel: The real estate strategy game for 2 to 8 players
+      url: /ad-valorem/
+      icon: game
+      image: /images/AD VALOREM.png
     - label: Crumb Ledger dev blog
       sublabel: A new app in the works
       url: ""
       icon: blog
-    - label: TikTok
-      sublabel: "@furthew.dev"
-      url: https://www.tiktok.com/@furthew.dev
-      icon: tiktok
+  socials:
     - label: Facebook
-      sublabel: Furthew Entertainment
       url: https://www.facebook.com/furthewentertainment
       icon: facebook
+    - label: TikTok
+      url: https://www.tiktok.com/@furthew.dev
+      icon: tiktok
+  contact_email: matt@furthew.com
+  contact_phone: 903-426-0034
   seo_title: Furthew Entertainment | Games and apps by Matt Parker
   seo_description: Ad Valorem, the real estate strategy game, plus Crumb Ledger and more from Furthew Entertainment.
