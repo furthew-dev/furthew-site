@@ -110,3 +110,33 @@ seo:
   share_description: A real estate strategy game for 2 to 8 players. On the table
     and on your phone. Coming to Kickstarter February 2, 2027.
   share_image: /og.jpg
+home:
+  bio: Games and apps by Matt Parker.
+  links:
+    - label: Ad Valorem
+      sublabel: The real estate strategy game
+      url: /ad-valorem/
+      icon: game
+      image: /images/AD VALOREM.png
+    - label: Ad Valorem on Kickstarter
+      sublabel: Launches Feb 2, 2027 · Get a reminder
+      url: /subscribe/
+      icon: kickstarter
+    - label: Play Ad Valorem Pocket free
+      sublabel: Runs in your phone's browser
+      url: https://furthew-dev.github.io/ad-valorem-pocket/
+      icon: play
+    - label: Crumb Ledger dev blog
+      sublabel: A new app in the works
+      url: ""
+      icon: blog
+    - label: TikTok
+      sublabel: "@furthew.dev"
+      url: https://www.tiktok.com/@furthew.dev
+      icon: tiktok
+    - label: Facebook
+      sublabel: Furthew Entertainment
+      url: https://www.facebook.com/furthewentertainment
+      icon: facebook
+  seo_title: Furthew Entertainment | Games and apps by Matt Parker
+  seo_description: Ad Valorem, the real estate strategy game, plus Crumb Ledger and more from Furthew Entertainment.
