@@ -5,11 +5,50 @@ media:
 
 content:
   - name: site
-    label: Furthew.com page
+    label: Furthew.com pages
     type: file
     path: _data/content.yml
     format: yaml
     fields:
+      - name: home
+        label: Home page (furthew.com link list)
+        type: object
+        fields:
+          - name: bio
+            label: Line under your name
+            type: string
+          - name: links
+            label: Links (drag to reorder)
+            type: object
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{label}"
+            fields:
+              - name: label
+                label: Button text
+                type: string
+              - name: sublabel
+                label: Small text under the button
+                type: string
+              - name: url
+                label: Link (leave empty to show it as "Coming soon")
+                type: string
+              - name: icon
+                label: Icon
+                type: select
+                options:
+                  values: [game, kickstarter, play, blog, tiktok, facebook, email, link]
+              - name: image
+                label: Picture instead of an icon (optional, square works best)
+                type: image
+          - name: seo_title
+            label: Browser tab and Google title
+            type: string
+          - name: seo_description
+            label: Google description
+            type: text
+
       - name: kickstarter
         label: Kickstarter button
         type: object
